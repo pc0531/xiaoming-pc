@@ -3,3 +3,21 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+footer{
+  background: #38BCA4;
+  height: 100px;
+}
+
+h3{
+  font-weight: 400;
+  margin: 0
+}
+
+a{
+  cursor: pointer
+}
+
+p{
+  margin: 0;
+}
