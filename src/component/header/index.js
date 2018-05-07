@@ -1,5 +1,6 @@
 import React, { Component } from "react"
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link, withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 const initRows = [
     { title: '首页', url: '/home' },
@@ -15,7 +16,7 @@ const style = {
     color: '#fff'
 }
 
-export default class Header extends Component {
+class Header extends Component {
 
     state = {
         rows: []
@@ -31,12 +32,14 @@ export default class Header extends Component {
     }
 
     render() {
+        const { userName } = this.props;
         return (
             <header>
                 <div className="headerTop">
                     <div className="headerContent">
-                        <a>免费申请</a>
-                        <a>登录</a>
+                        {
+                            userName ? <span>您好：{userName}</span> : <Link to='/signin'>登录</Link>
+                        }
                     </div>
                 </div>
                 <nav>
@@ -56,3 +59,9 @@ export default class Header extends Component {
     }
 
 }
+
+const wh = connect(state => ({
+    ...state.userConfig
+}))(Header)
+
+export default withRouter(wh)

@@ -1,12 +1,13 @@
 export default function userConfig(state = {}, action) {
 	switch (action.type) {
 		case "signInSuccess": {
-            const { mobile} = action.data || {}
+            const { userName,id} = action.data.user || {}
 			return {
 				...state,
 				...action.data,
 				// mobile: mobile ? maskPhone(mobile) : '',
-				rawMobile: mobile,
+				userName: userName,
+				userId:id
 			}
 		}
 		default:

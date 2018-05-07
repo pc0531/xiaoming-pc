@@ -1,54 +1,102 @@
 import React from 'react';
-import { Icon, Input, Button} from 'antd'
+import { Icon, Input, Button, Form, message } from 'antd'
+import * as actions from './modules/action'
+import axios from 'axios'
+import PropTypes from 'prop-types'
+import { bindActionCreators } from "redux"
+import { connect } from "react-redux"
+
+const FormItem = Form.Item
 
 class SignIn extends React.Component {
-    render() {
-        {
-            return (
-                <div className="mui-content login-content">
-                    <div className="goback">
-                        <a onClick={() => {
-                            console.error("返回")
-                        }}>返回</a>
-                    </div>
-                    <p className="title">微信号/QQ/邮箱登录</p>
-                    <form className="js-form">
-                        {/* <figure>
-                            <img src={this.state.icon} />
-                            <p>{this.state.company}</p>
-                        </figure> */}
-                        <div className="login-input-form">
-                                <div className="validate-group">
-                                    <p>
-                                        账号:
-                                    </p>
-                                    <Input
-                                    className="login-input"
-                                        size="large"
-                                        placeholder="请输入手机号码"
-                                    />
-                                </div>
-                                <div className="validate-group">
-                                    <p>
-                                        密码:
-                                    </p>
-                                    <Input
-                                     className="login-input"
-                                        size="large"
-                                        placeholder="请输入密码"
-                                    />
-                                </div>
-                                <Button className='login-but'>登录</Button>
-                        </div>
-                    </form>
-                    
-                </div>
-            );
+    static contextTypes = {
+        router: PropTypes.object
+    }
 
-        };
+    gotoPage = (args, event) => {
+        const { history } = this.context.router
+        history.push(args)
+    }
+
+    loginHander = () => {
+        const { validateFields, getFieldValue,getFieldsValue } = this.props.form;
+        const {signIn} = this.props;
+        validateFields((err) => {
+            if (err) {
+                return
+            }
+            const formatData = getFieldsValue()
+            signIn(formatData,()=>{
+                this.gotoPage("/profile/personInfo")
+            })
+            
+        })
+
     }
 
 
+
+    render() {
+        const { getFieldDecorator, getFieldsValue } = this.props.form;
+        return (
+            <div className="signin">
+                <div className='loginContent'>
+                    <h1>登录</h1>
+                    <div className='loginForm'>
+                        <Form className='inputForm'>
+                            <div>
+                                <FormItem className='usernameInput'>
+                                    {getFieldDecorator('userName', {
+                                        validateTrigger: ["onBlur"],
+                                        rules: [{
+                                            required: true,
+                                            message: '请输入用户名',
+                                        }],
+                                    })(
+                                        <Input placeholder="用户名" />
+                                    )}
+                                </FormItem>
+                            </div>
+                            <div>
+                                <FormItem className='usernameInput'>
+                                    {getFieldDecorator('logPassword', {
+                                        validateTrigger: ["onBlur"],
+                                        rules: [{
+                                            required: true,
+                                            message: '请输入密码',
+                                        }],
+                                    })(
+                                        <Input placeholder="密码" />
+                                    )}
+                                </FormItem>
+
+                            </div>
+
+                            <Button
+                                className='loginBut'
+                                onClick={() => {
+                                    this.loginHander()
+                                }}
+                            >
+                                登录
+                            </Button>
+                        </Form>
+                    </div>
+
+                </div>
+            </div>
+        );
+
+    };
 }
 
-export default SignIn
+const SigninForm = Form.create()(SignIn)
+
+const mapStateToProps = (state) => {
+    return { ...state.signIn }
+}
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators(actions, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SigninForm)
