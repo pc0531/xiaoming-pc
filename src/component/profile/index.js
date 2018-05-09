@@ -4,7 +4,7 @@ import { Switch, Redirect, Route } from "react-router-dom"
 import ProfileLeft from '../profileLeft'
 import PersonInfo from './personInfo'
 import Friends from './friends'
-import Order from './order'
+import MyOrder from './myOrder'
 
 class Profile extends React.Component {
     render() {
@@ -16,7 +16,7 @@ class Profile extends React.Component {
                     <ProfileLeft key='prol' />
                     <Switch key='profile'>
                         <Route path='/profile/personInfo' component={PersonInfo} />
-                        <Route path='/profile/order' component={Order} />
+                        <Route path='/profile/myOrder' component={MyOrder} />
                         <Route path='/profile/friends' component={Friends} />
                     </Switch>
                 </div>

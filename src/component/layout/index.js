@@ -5,17 +5,22 @@ import SignIn from '../signin'
 import Header from '../header'
 import Footer from '../footer'
 import Profile from '../profile'
+import Course from '../course'
+import Class from '../class'
+import Order from '../order'
 export default class Layout extends Component {
     render() {
         return [
             <Header key='Header'/>,
-
             <Switch key="homeContent">
-                <Redirect exact from="/" to="/home" />
+                <Redirect exact from="/" to="/course" />
 
                 <Route path="/home" component={Home} />
                 <Route path="/signin" component={SignIn} />
                 <Route path="/profile" component={Profile} />
+                <Route path="/course" component={Course} />
+                <Route path="/class" component={Class} />
+                <Route path="/order" component={Order} />
             </Switch>,
             <Footer key='Footer'/>,
            

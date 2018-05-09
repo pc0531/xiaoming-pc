@@ -14,7 +14,7 @@ export default class RecommendClass extends Component {
                 </h2>
                 <div className='container-content'>
                     <div className='container-card-content'>
-                        <Link to='/home'>
+                        <Link to='/class'>
                             <div className='card-top'>
                                 <img src='//img1.sycdn.imooc.com/szimg/59b8a486000107fb05400300.jpg' />
                             </div>

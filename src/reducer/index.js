@@ -2,9 +2,15 @@ import { combineReducers } from "redux"
 
 import userConfig from "./userConfig"
 import friends from '../component/profile/friends/modules/reducer'
+import myOrder from '../component/profile/myOrder/modules/reducer'
+import course from '../component/course/modules/reducer'
+import order from '../component/order/modules/reducer'
 
 
 export default combineReducers({
     userConfig,
-    friends
+    course,
+    friends,
+    myOrder,
+    order
 })
