@@ -31,7 +31,6 @@ class Order extends Component {
     handleOk = ()=> {
         const { payOrder,userCode } = this.props;
         payOrder(payType.balance,userCode,this.state.payPassword,()=>{
-            console.error("过来")
             this.gotoPage("/profile/myOrder")
         })
        

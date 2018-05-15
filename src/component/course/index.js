@@ -10,26 +10,32 @@ const router = {
     state: ''
 }
 
+const initState = {
+    firsttitle: -1,
+    secondtitle: -1,
+    thirdtitle: -1,
+}
+
 
 class Course extends Component {
+    state = initState;
+
     componentDidMount() {
         const { getClassList } = this.props;
         getClassList();
     }
     render() {
         const { classList } = this.props;
+        let state = this.state;
         return (
             <div className='course'>
-                <TopNav />
+                <TopNav {...state}/>
                 <div className='container'>
                     <div className='course-tool-bar'>
                         <div className='tool-left'>
-                            <a>最新
-                            </a>
-                            <a>最热
-                            </a>
+                            <a>最新</a>
+                            <a>最热</a>
                         </div>
-
                     </div>
                     <div className='course-list'>
                         <div className='moco-course-list'>
@@ -52,158 +58,12 @@ class Course extends Component {
                                                 </div>
                                             </div>
                                         </Link>
-                                        {/* <a>
-                                   
-                                </a> */}
                                     </div>
                                 ))
                             }
-                            {/* <div className='course-card-container'>
-                                <a>
-                                    <div className='course-card-top'>
-                                        <img src='//img1.sycdn.imooc.com/529dc3380001379906000338-240-135.jpg'>
-                                        </img>
-                                    </div>
-                                    <div className='course-card-content'>
-                                        <h3>
-                                            HTML+CSS基础
-                                            </h3>
-                                        <div className='course-card-bottom'>
-                                            <div className='course-card-info'>
-                                                <span>入门</span>
-                                                <span>入门</span>
-                                            </div>
-                                            <p className='course-card-desc'>HTML+CSS基础教程8小时带领大家步步深入学习标签用法和意义</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-
-
-
-                            <div className='course-card-container'>
-                                <a>
-                                    <div className='course-card-top'>
-                                        <img src='//img1.sycdn.imooc.com/529dc3380001379906000338-240-135.jpg'>
-                                        </img>
-                                    </div>
-                                    <div className='course-card-content'>
-                                        <h3>
-                                            HTML+CSS基础
-                                            </h3>
-                                        <div className='course-card-bottom'>
-                                            <div className='course-card-info'>
-                                                <span>入门</span>
-                                                <span>入门</span>
-                                            </div>
-                                            <p className='course-card-desc'>HTML+CSS基础教程8小时带领大家步步深入学习标签用法和意义</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-
-
-
-                            <div className='course-card-container'>
-                                <a>
-                                    <div className='course-card-top'>
-                                        <img src='//img1.sycdn.imooc.com/529dc3380001379906000338-240-135.jpg'>
-                                        </img>
-                                    </div>
-                                    <div className='course-card-content'>
-                                        <h3>
-                                            HTML+CSS基础
-                                            </h3>
-                                        <div className='course-card-bottom'>
-                                            <div className='course-card-info'>
-                                                <span>入门</span>
-                                                <span>入门</span>
-                                            </div>
-                                            <p className='course-card-desc'>HTML+CSS基础教程8小时带领大家步步深入学习标签用法和意义</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-
-
-                            <div className='course-card-container'>
-                                <a>
-                                    <div className='course-card-top'>
-                                        <img src='//img1.sycdn.imooc.com/529dc3380001379906000338-240-135.jpg'>
-                                        </img>
-                                    </div>
-                                    <div className='course-card-content'>
-                                        <h3>
-                                            HTML+CSS基础
-                                            </h3>
-                                        <div className='course-card-bottom'>
-                                            <div className='course-card-info'>
-                                                <span>入门</span>
-                                                <span>入门</span>
-                                            </div>
-                                            <p className='course-card-desc'>HTML+CSS基础教程8小时带领大家步步深入学习标签用法和意义</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-
-
-                            <div className='course-card-container'>
-                                <a>
-                                    <div className='course-card-top'>
-                                        <img src='//img1.sycdn.imooc.com/529dc3380001379906000338-240-135.jpg'>
-                                        </img>
-                                    </div>
-                                    <div className='course-card-content'>
-                                        <h3>
-                                            HTML+CSS基础
-                                            </h3>
-                                        <div className='course-card-bottom'>
-                                            <div className='course-card-info'>
-                                                <span>入门</span>
-                                                <span>入门</span>
-                                            </div>
-                                            <p className='course-card-desc'>HTML+CSS基础教程8小时带领大家步步深入学习标签用法和意义</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div> */}
-
 
                         </div>
                     </div>
-                    {/* <div className='courselist'>
-                    <div className='monocourselist'>
-                        <div className='coursecard-top'>
-                            <img src='//img1.sycdn.imooc.com/529dc3380001379906000338-240-135.jpg'>
-                            </img>
-                        </div>
-                        <div className='coursecard-top'>
-                            <img src='//img1.sycdn.imooc.com/529dc3380001379906000338-240-135.jpg'>
-                            </img>
-                        </div>
-                        <div className='coursecard-top'>
-                            <img src='//img1.sycdn.imooc.com/529dc3380001379906000338-240-135.jpg'>
-                            </img>
-                        </div>
-                        <div className='coursecard-top'>
-                            <img src='//img1.sycdn.imooc.com/529dc3380001379906000338-240-135.jpg'>
-                            </img>
-                        </div>
-                        <div className='coursecard-top'>
-                            <img src='//img1.sycdn.imooc.com/529dc3380001379906000338-240-135.jpg'>
-                            </img>
-                        </div>
-                        <div className='coursecard-top'>
-                            <img src='//img1.sycdn.imooc.com/529dc3380001379906000338-240-135.jpg'>
-                            </img>
-                        </div>
-                        <div className='coursecard-top'>
-                            <img src='//img1.sycdn.imooc.com/529dc3380001379906000338-240-135.jpg'>
-                            </img>
-                        </div>
-                    </div>
-                    </div> */}
                 </div>
             </div>
         )

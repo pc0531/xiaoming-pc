@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 const initRows = [
     { title: '首页', url: '/home' },
-    { title: '产品中心', url: '/product' },
+    { title: '课程中心', url: '/course' },
     { title: '解决方案', url: '/solve' },
     { title: '客户案例', url: '/customer' },
     { title: '新闻动态', url: '/news' },
@@ -38,7 +38,7 @@ class Header extends Component {
                 <div className="headerTop">
                     <div className="headerContent">
                         {
-                            userName ? <span>您好： <Link to='/profile'>{userName}</Link></span> : <Link to='/signin'>登录</Link>
+                            userName ? <span>您好： <Link to='/profile/personInfo'>{userName}</Link></span> : <Link to='/signin'>登录</Link>
                         }
                     </div>
                 </div>

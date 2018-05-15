@@ -1,6 +1,10 @@
 import React, { Component } from "react"
-import { Switch, Redirect, Route ,Link} from "react-router-dom"
+import { Switch, Redirect, Route, Link } from "react-router-dom"
 import { Button, Tabs } from "antd";
+import { bindActionCreators } from "redux"
+import { connect } from "react-redux"
+import * as actions from './modules/action'
+
 const TabPane = Tabs.TabPane;
 
 
@@ -10,9 +14,10 @@ const router = {
 }
 
 class Class extends Component {
+
     render() {
         let classDetail = this.props.location.state;
-        console.error("classDetail.picUrl:"+classDetail.picUrl)
+        const { userName } = this.props;
         return (
             <div className='class'>
                 <div className='course-class-infos'>
@@ -42,9 +47,9 @@ class Class extends Component {
                             </div>
                             <div className='course-class-info-buy'>
                                 <Button>
-                                    <Link to= {{...router,state:classDetail}}>
-                                    立刻购买</Link>
-                            </Button>
+                                    <Link to={userName?{ ...router, state: classDetail }:'/signin'}>
+                                        立刻购买</Link>
+                                </Button>
                             </div>
                         </div>
                     </div>
@@ -54,9 +59,9 @@ class Class extends Component {
                         <TabPane tab="课程介绍" key="1">
                             <div className='course-infolayout'>
                                 <div className='course-info-introduct-content'>
-                                    <div 
-                                    className='course-info-introduct-section1'
-                                    style={{backgroundImage:`url(${classDetail.picUrl})`}}
+                                    <div
+                                        className='course-info-introduct-section1'
+                                        style={{ backgroundImage: `url(${classDetail.picUrl})` }}
                                     >
                                     </div>
                                 </div>
@@ -71,4 +76,11 @@ class Class extends Component {
     }
 }
 
-export default Class
+const mapStateToProps = (state) => {
+    return { ...state.userConfig }
+}
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators(actions,dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Class)

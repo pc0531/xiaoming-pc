@@ -19,17 +19,17 @@ class SignIn extends React.Component {
     }
 
     loginHander = () => {
-        const { validateFields, getFieldValue,getFieldsValue } = this.props.form;
-        const {signIn} = this.props;
+        const { validateFields, getFieldValue, getFieldsValue } = this.props.form;
+        const { signIn } = this.props;
         validateFields((err) => {
             if (err) {
                 return
             }
             const formatData = getFieldsValue()
-            signIn(formatData,()=>{
+            signIn(formatData, () => {
                 this.gotoPage("/profile/personInfo")
             })
-            
+
         })
 
     }
@@ -66,7 +66,7 @@ class SignIn extends React.Component {
                                             message: '请输入密码',
                                         }],
                                     })(
-                                        <Input placeholder="密码" type='password' autocomplete="off"/>
+                                        <Input placeholder="密码" type='password' autoComplete="off" />
                                     )}
                                 </FormItem>
 
@@ -82,6 +82,12 @@ class SignIn extends React.Component {
                             </Button>
                         </Form>
                     </div>
+                    <div className='login-register'>
+                    <p>还没有注册小鸣账号？</p>
+                    <Button onClick = {()=>{
+                        this.gotoPage("/signup")
+                    }}>注册</Button>
+                        </div>
 
                 </div>
             </div>

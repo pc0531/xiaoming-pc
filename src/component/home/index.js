@@ -18,13 +18,15 @@ class Home extends Component {
         return (
             <div className='home'>
                 <div className='banner'>
-                    <div className='bannerContent'>
+                    <div className='bannerContent'
+                        onMouseLeave={() => {
+                            this.setState({ activeId: -1 })
+                        }}
+                    >
                         <Menu
+                            activeId={activeId}
                             onMouseOver={(id) => {
                                 this.setState({ activeId: id })
-                            }}
-                            onMouseLeave={() => {
-                                this.setState({ activeId: -1 })
                             }}
                         />
                         <TypeDetail activeId={activeId} />
@@ -34,10 +36,10 @@ class Home extends Component {
 
                     </div>
                 </div>
-                <RecommendTeacher/>
-                <RecommendSchool/>
+                <RecommendTeacher />
+                <RecommendSchool />
                 <RecommendClass />
-               
+
             </div>
         )
     }

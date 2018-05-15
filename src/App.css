@@ -187,6 +187,16 @@
   min-height: 150px;
 }
 
+.boxContent{
+  margin-bottom: 15px;
+}
+
+.boxContent p{
+  border-bottom: 1px solid #e5e5e5;
+  line-height: 35px;
+  font-weight: bold;
+}
+
 .boxContent > a{
   text-decoration: none;
   color: #71777d;
@@ -484,7 +494,7 @@
   position: absolute;
   background: #fff;
   width: 350px;
-  height: 400px;
+  height: 430px;
   top: 60px;
   right: 60px;
   border-radius: 8px;
@@ -496,6 +506,7 @@
   padding-top: 25px;
   color: #333;
   text-align: center;
+  margin: 0;
 }
 
 .loginForm{
@@ -525,7 +536,6 @@
   color: #fff;
   border: 0;
   text-decoration: none;
-  margin-top: 20px;
 }
 
 .loginBut:hover{
@@ -543,6 +553,35 @@
   color: #fff;
 }
 
+.login-register{
+  width: 250px;
+  margin: 0 auto;
+  border-top: #e5e5e5 1px solid;
+}
+
+.login-register p{
+  text-align: center;
+  color: #999;
+  margin: 0;
+  padding: 10px 0 15px;
+}
+
+.login-register button{
+  width: 100%;
+  height: 40px;
+  border-radius: 4px;
+  background:  #fff;
+  color: #38BCA4;
+  border: 1px solid #38BCA4;
+  text-decoration: none; 
+}
+
+.login-register button:hover{
+  background:#38BCA4;
+  color:   #fff ;
+  border: 1px solid #38BCA4;
+}
+
 /*         component/profile    */
 .profileContent{
   width: 1152px;
@@ -555,6 +594,8 @@
   min-height:500px ;
   background: #efefef;
 }
+
+
 
 
 
@@ -600,6 +641,11 @@
 
 .personInfoContent p{
   margin: 20px 0 ;
+}
+
+.personInfo a{
+  color: #38BCA4;
+  text-decoration: none;
 }
 
 
@@ -1182,6 +1228,77 @@ float: left;
 .payPasswordInput{
   width: 100px;
 }
+
+
+/*         component/signup  */
+.signup{
+  position: relative;
+  padding-top: 44px;
+  padding-bottom: 40px;
+  background: #eee;
+}
+
+.signup a{
+  color: #38BCA4;
+  text-decoration: none;
+}
+
+.signup-header{
+  text-align: center;
+}
+
+.signup-content{
+  max-width: 1180px;
+  margin: 40px auto 0;
+  background-color: #fff;
+  padding-bottom: 40px;
+}
+
+.signup-content-title{
+  text-align: left;
+  padding: 45px 40px 0;
+}
+
+.signup-have{
+  text-align: center;
+  margin-top: 20px;
+}
+
+.signup-content-title h2{
+  font-size: 24px;
+  color: #333;
+  font-weight: 400;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e7e7e7;
+  margin: 0
+}
+
+.signup-content-inner{
+  width: 400px;
+  margin: 0 auto;
+}
+
+.signup-content-inner .usernameInput{
+  height: 80px;
+}
+
+.signup-content-inner .usernameInput input{
+  font-size: 14px;
+  height: 45px;
+  width: 400px;
+  display: inline-block;
+  border-radius: 2px;
+  color: #333;
+  vertical-align: middle;
+  padding: 13px 10px 12px;
+  box-sizing: border-box;
+}
+
+.signup-protocol{
+
+}
+
+
 
 /* .order-submit-btn{
   padding: 0px;
