@@ -44,6 +44,10 @@ export const initMenu = [
                     {
                         id: 1,
                         title: '数学'
+                    },
+                    {
+                        id: 2,
+                        title: '英语'
                     }
                 ]
             },
@@ -62,6 +66,10 @@ export const initMenu = [
                     {
                         id: 1,
                         title: '数学'
+                    },
+                    {
+                        id: 2,
+                        title: '英语'
                     }
                 ]
             }

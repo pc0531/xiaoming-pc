@@ -1,30 +1,18 @@
 import React, { Component } from "react"
 import { Switch, Redirect, Route, NavLink } from "react-router-dom"
-import {initMenu} from '../../../common/constants'
-
-
-const initState = {
-    firsttitle: -1,
-    secondtitle: -1,
-    thirdtitle: -1,
-}
+import { initMenu } from '../../../common/constants'
 
 class TopNav extends Component {
-    state = initState
 
     render() {
-        const { firsttitle, secondtitle, thirdtitle } = this.state;
+        const { firsttitle, secondtitle, thirdtitle, changetitle } = this.props;
         let second = initMenu.find((param) => {
             return param.id === firsttitle;
         })
-       
-            let third = second.secondtitle.find((param) => {
-                return param.id === secondtitle;
-            })
 
-        console.error("firsttitle："+firsttitle);
-        console.error("secondtitle"+secondtitle);
-        console.error("secondtitle"+secondtitle)
+        let third = second.secondtitle.find((param) => {
+            return param.id === secondtitle;
+        })
         return (
             <div className='wrap'>
                 <div className='top'>
@@ -41,7 +29,7 @@ class TopNav extends Component {
                                                         <a
                                                             style={{ background: '#2b333b', color: '#fff', borderRadius: '2px' }}
                                                             onClick={() => {
-                                                                this.setState({ ...initState ,firsttitle: ele.id })
+                                                                changetitle('firsttitle', ele.id)
                                                             }}
                                                         >
                                                             {ele.firsttitle}
@@ -52,7 +40,7 @@ class TopNav extends Component {
                                                 return (
                                                     <li>
                                                         <a onClick={() => {
-                                                            this.setState({...initState , firsttitle: ele.id })
+                                                            changetitle('firsttitle', ele.id)
                                                         }}>
                                                             {ele.firsttitle}
                                                         </a>
@@ -75,7 +63,8 @@ class TopNav extends Component {
                                                             <a
                                                                 style={{ background: '#2b333b', color: '#fff', borderRadius: '2px' }}
                                                                 onClick={() => {
-                                                                    this.setState({secondtitle: ele.id })
+                                                                    changetitle('secondtitle', ele.id)
+
                                                                 }}
                                                             >
                                                                 {ele.title}
@@ -86,7 +75,7 @@ class TopNav extends Component {
                                                     return (
                                                         <li>
                                                             <a onClick={() => {
-                                                                this.setState({ secondtitle: ele.id })
+                                                                changetitle('secondtitle', ele.id)
                                                             }}>
                                                                 {ele.title}
                                                             </a>
@@ -110,7 +99,8 @@ class TopNav extends Component {
                                                             <a
                                                                 style={{ background: '#2b333b', color: '#fff', borderRadius: '2px' }}
                                                                 onClick={() => {
-                                                                    this.setState({ thirdtitle: ele.id })
+                                                                    changetitle('thirdtitle', ele.id)
+
                                                                 }}
                                                             >
                                                                 {ele.title}
@@ -121,7 +111,7 @@ class TopNav extends Component {
                                                     return (
                                                         <li>
                                                             <a onClick={() => {
-                                                                this.setState({ thirdtitle: ele.id })
+                                                                changetitle('thirdtitle', ele.id)
                                                             }}>
                                                                 {ele.title}
                                                             </a>
