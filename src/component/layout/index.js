@@ -13,7 +13,7 @@ export default class Layout extends Component {
         return [
             <Header key='Header'/>,
             <Switch key="homeContent">
-                <Redirect exact from="/" to="/course" />
+                <Redirect exact from="/" to="/home" />
 
                 <Route path="/home" component={Home} />
                 <Route path="/signin" component={SignIn} />

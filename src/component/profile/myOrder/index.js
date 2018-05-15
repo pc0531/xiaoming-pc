@@ -6,7 +6,7 @@ import { connect } from "react-redux"
 import * as actions from './modules/action'
 import moment from 'moment'
 
-const payStatus = {
+const orderStatus = {
     6: "已取消",
 
     5: "上课完成",
@@ -57,11 +57,11 @@ const columns = [
         align: 'center'
     },
     {
-        dataIndex: 'payStatus',
+        dataIndex: 'status',
         title: '支付状态',
         width: '14%',
         align: 'center',
-        render: (text) => payStatus[text]
+        render: (text) => orderStatus[text]
     },
     {
         dataIndex: 'operation',

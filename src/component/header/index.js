@@ -38,7 +38,7 @@ class Header extends Component {
                 <div className="headerTop">
                     <div className="headerContent">
                         {
-                            userName ? <span>您好：{userName}</span> : <Link to='/signin'>登录</Link>
+                            userName ? <span>您好： <Link to='/profile'>{userName}</Link></span> : <Link to='/signin'>登录</Link>
                         }
                     </div>
                 </div>

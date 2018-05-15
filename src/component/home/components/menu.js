@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {Link} from 'react-router-dom'
 const initMenu = [
     {
         id: 0,
@@ -41,6 +42,7 @@ export default class Menu extends Component {
             <div className='menu'>
                 {
                     initMenu.map((ele, index) => (
+                        <Link to='/course'>
                         <div className={`menuDetail` + ` ` + `${activeId === ele.id ? `menuDetailActive` : ``}`}
                             key={ele + index}
                             onMouseOver={() => {
@@ -57,6 +59,7 @@ export default class Menu extends Component {
                                 <i></i>
                             </a>
                         </div>
+                        </Link>
                     ))
                 }
 

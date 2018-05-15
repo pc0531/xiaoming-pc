@@ -26,14 +26,14 @@ export default class RecommendTeacher extends Component {
                 </li>
                 <li className='recommendTeacher-bottom-center-left'>
                     <a>
-                        <img src='http://img3.duitang.com/uploads/item/201512/25/20151225132409_NKFCh.jpeg' />
+                        <img src='https://pic.qqtn.com/up/2018-4/15241069988679136.jpg' />
                         <p style={{color:'#3cb46d'}}>新东方高级讲师</p>
                         <p style={{ paddingTop: '10px' }}>誉为</p>
                     </a>
                 </li>
                 <li className='recommendTeacher-bottom-center-top'>
                     <a>
-                        <img src='http://img4.duitang.com/uploads/item/201407/27/20140727113834_xYLAK.jpeg' />
+                        <img src='https://pic.qqtn.com/up/2018-4/15241069979748106.jpg' />
                         <div>
                             <p style={{color:'#3cb46d'}}>北京师范大学</p>
                             <p>于成冠</p>
@@ -43,7 +43,7 @@ export default class RecommendTeacher extends Component {
                 </li>
                 <li className='recommendTeacher-bottom-center-top' style={{ marginTop: '16px' }}>
                     <a>
-                        <img src='http://f.hiphotos.baidu.com/zhidao/wh%3D600%2C800/sign=73137c5d5243fbf2c579ae25804ee6b8/6f061d950a7b0208cebb66b463d9f2d3572cc871.jpg' />
+                        <img src='https://pic.qqtn.com/up/2018-4/15241069973913679.jpg' />
                         <div>
                             <p style={{color:'#3cb46d'}}>北京师范大学</p>
                             <p>立威廉</p>

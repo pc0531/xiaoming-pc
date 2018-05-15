@@ -309,6 +309,7 @@
 /*         component/home/components/recommendTeacher    */
 
 .recommendTeacher{
+  display: grid;
 
 }
 
@@ -318,6 +319,7 @@
   margin-right: auto;
   padding: 35px 0 22px;
   height: 30px;
+  margin-bottom: 10px;
 } 
 
 .recommendTeacher-top > h3{
@@ -497,13 +499,12 @@
 }
 
 .loginForm{
-  padding: 30px 50px; 
+  padding: 10px 50px; 
 }
 
 .loginForm input{
   display: inline-block;
-  width: 236px;
-  height: 30px;
+  height: 40px;
   font-size: 15px;
   padding: 3px 5px;
 }
@@ -513,12 +514,7 @@
   padding: 20px 0;
 }
 .usernameInput{
-  height: 80px;
-
-}
-
-.passwordInput{
-  height: 80px;
+  height: 70px;
 }
 
 .loginBut{
@@ -529,6 +525,22 @@
   color: #fff;
   border: 0;
   text-decoration: none;
+  margin-top: 20px;
+}
+
+.loginBut:hover{
+  background: #38BCA4;
+  color: #fff;
+}
+
+.loginBut:visited{
+  background: #38BCA4;
+  color: #fff;
+}
+
+.loginBut:focus{
+  background: #38BCA4;
+  color: #fff;
 }
 
 /*         component/profile    */
@@ -598,7 +610,6 @@
   vertical-align: top;
   margin-left: 20px;
   width:calc(100% - 170px);
-  height: 480px; 
 }
 
 .myorderContent{

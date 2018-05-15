@@ -1,14 +1,40 @@
 import React, { Component } from "react"
 import { Switch, Redirect, Route } from "react-router-dom"
 import { Button, Modal, Input } from "antd";
+import { bindActionCreators } from "redux"
+import { connect } from "react-redux"
+import * as actions from './modules/action'
+import PropTypes from 'prop-types'
+
+const payType = {
+    balance:1,
+    ali:2,
+    wechat:3
+}
 
 class Order extends Component {
+
+    static contextTypes = {
+        router: PropTypes.object
+    }
+    
     state = {
-        visible: false
+        visible: false,
+        payPassword:''
+    }
+
+    gotoPage = (args, event) => {
+        const { history } = this.context.router
+        history.push(args)
     }
 
     handleOk = ()=> {
-        this.setState({ visible: false })
+        const { payOrder,userCode } = this.props;
+        payOrder(payType.balance,userCode,this.state.payPassword,()=>{
+            console.error("过来")
+            this.gotoPage("/profile/myOrder")
+        })
+       
     }
 
     handleCancel = ()=> {
@@ -18,6 +44,8 @@ class Order extends Component {
 
     render() {
         let classDetail = this.props.location.state;
+        let payPassword = this.state.payPassword
+        const { createOrder ,  userCode} = this.props;
         return (
             <div className='order'>
                 <div className='order-bc-hearder'>
@@ -58,7 +86,16 @@ class Order extends Component {
                     <div style={{ height: '50px' }}>
                         <Button className='order-submitbut'
                             onClick={() => {
-                                this.setState({ visible: true })
+                                let param = {
+                                    goodsName:classDetail.goodsName,
+                                    goodsId:classDetail.goodsId,
+                                    buyId:userCode,
+                                    goodsNum:1,
+                                    totalCash:20,
+                                }
+                                createOrder(param,()=>{
+                                    this.setState({ visible: true })
+                                });
                             }}
                         >
                             立即购买
@@ -74,11 +111,23 @@ class Order extends Component {
                 >
                     <div className='payModal'>
                         <span>请输入支付密码</span>
-                        <Input className = 'payPasswordInput'/>
+                        <Input 
+                        className = 'payPasswordInput' 
+                        value={payPassword} 
+                        onChange={(e)=>{
+                            this.setState({payPassword:e.target.value})
+                        }}/>
                     </div>
                 </Modal>
             </div>
         )
     }
 }
-export default Order
+
+const mapStateToProps = (state) => {
+    return { ...state.order,...state.userConfig }
+}
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators(actions, dispatch)
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Order);

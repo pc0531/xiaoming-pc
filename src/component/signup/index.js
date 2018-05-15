@@ -8,7 +8,7 @@ import { connect } from "react-redux"
 
 const FormItem = Form.Item
 
-class SignIn extends React.Component {
+class SignUp extends React.Component {
     static contextTypes = {
         router: PropTypes.object
     }
@@ -90,7 +90,7 @@ class SignIn extends React.Component {
     };
 }
 
-const SigninForm = Form.create()(SignIn)
+const SigninForm = Form.create()(SignUp)
 
 const mapStateToProps = (state) => {
     return { ...state.signIn }
