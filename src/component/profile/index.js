@@ -5,6 +5,8 @@ import ProfileLeft from '../profileLeft'
 import PersonInfo from './personInfo'
 import Friends from './friends'
 import MyOrder from './myOrder'
+import ClassManage from './classmanage'
+import Recharge from './recharge'
 import { bindActionCreators } from "redux"
 import { connect } from "react-redux"
 
@@ -13,7 +15,6 @@ class Profile extends React.Component {
         const {userName } =this.props;
         console.error("userName:"+userName)
         return (
-
             <div className='profile'>
                 <div className='profileContent'>
                     <Redirect from='/profile' to='/profile/personInfo' />
@@ -22,6 +23,8 @@ class Profile extends React.Component {
                         <Route path='/profile/personInfo' component={PersonInfo} />
                         <Route path='/profile/myOrder' component={MyOrder} />
                         <Route path='/profile/friends' component={Friends} />
+                        <Route path='/profile/classmanage' component={ClassManage} />
+                        <Route path='/profile/recharge' component={Recharge} />
                     </Switch>
                 </div>
             </div>

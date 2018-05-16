@@ -632,7 +632,8 @@
   vertical-align: top;
   margin-left: 20px;
   width:calc(100% - 170px);
-  height: 480px;
+  /* height: 480px; */
+  min-height: 480px;
 }
 
 .personInfoContent{
@@ -643,13 +644,21 @@
   margin: 20px 0 ;
 }
 
-.personInfoContent span{
+/* .personInfoContent span{
   padding-right: 20px;
-}
+} */
 
 .personInfo a{
   color: #38BCA4;
   text-decoration: none;
+}
+
+.personInfo input{
+  padding-left: 5px;
+  margin-left: 10px;
+  height: 30px;
+  border: #edf1f2 1px solid;
+  border-radius: 4px;
 }
 
 
@@ -660,12 +669,50 @@
   vertical-align: top;
   margin-left: 20px;
   width:calc(100% - 170px);
+  min-height: 480px;
 }
 
 .myorderContent{
   padding: 20px;
   height: 100%;
 }
+.myorderContent a{
+  color: #38BCA4;
+  padding: 0 10px;
+}
+/*         component/profile/recharge   */
+.recharge{
+  display: inline-block;
+  background-color: white;
+  vertical-align: top;
+  margin-left: 20px;
+  width:calc(100% - 170px);
+  min-height: 400px;
+}
+
+.rechargeContent{
+  padding: 20px;
+  height: 100%;
+}
+
+.rechargeContent input{
+  padding-left: 5px;
+  margin-left: 10px;
+  height: 30px;
+  border: #edf1f2 1px solid;
+  border-radius: 4px;
+}
+
+.rechargeContent button{
+  width: 80px;
+height: 30px;
+background: #38BCA4;
+color: #fff;
+border: 0;
+border-radius: 4px;
+margin-top: 8px;
+}
+
 
 
 
@@ -1316,6 +1363,25 @@ float: left;
 
 .signup-protocol{
 
+}
+
+.classmanage{
+  
+}
+
+.classmanageForm{
+
+}
+
+.classmanageForm-type{
+  vertical-align: middle;
+  line-height: 39.9999px;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  margin-bottom: 24px;
+  padding-left: 110px;
 }
 
 

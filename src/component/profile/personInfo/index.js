@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import { bindActionCreators } from "redux"
 import { connect } from "react-redux"
 import * as actions from './modules/action'
+import { Modal } from 'antd'
 
 class PersonInfo extends Component {
     state = {
         update: false,
-        updatePayPwd: false
+        updatePayPwd: false,
+        modalShow: false
     }
 
     componentDidMount() {
@@ -15,9 +17,10 @@ class PersonInfo extends Component {
     }
 
     render() {
-        const { userInfo, changeData, updateUserInfo ,updatePayPassword } = this.props;
+        const { userInfo, changeData, updateUserInfo, updatePayPassword } = this.props;
         let update = this.state.update;
         let updatePayPwd = this.state.updatePayPwd;
+        let modalShow = this.state.modalShow;
         return (
             <div className='personInfo'>
                 <div className='personInfoContent'>
@@ -65,7 +68,13 @@ class PersonInfo extends Component {
                         <p>
                             <span>支付密码：</span>
                             {userInfo.payPassword ?
-                                <span>已设置</span>
+                                <span>已设置
+                                    <a onClick={() => {
+                                        this.setState({ modalShow: true })
+                                    }}
+                                        style={{ marginLeft: '10px' }}
+                                    >修改</a>
+                                </span>
                                 : (updatePayPwd ?
                                     <span>
                                         <input
@@ -73,14 +82,14 @@ class PersonInfo extends Component {
                                             onChange={(e) => {
                                                 changeData(e.target.name, e.target.value)
                                             }} />
-                                        <a 
-                                        onClick={() => {
-                                            updatePayPassword()
-                                            this.setState({ updatePayPwd: false })
-                                        }}
-                                        style={{marginLeft:'10px'}}
+                                        <a
+                                            onClick={() => {
+                                                updatePayPassword()
+                                                this.setState({ updatePayPwd: false })
+                                            }}
+                                            style={{ marginLeft: '10px' }}
                                         >
-                                        保存
+                                            保存
                                         </a>
                                     </span>
                                     :
@@ -94,6 +103,25 @@ class PersonInfo extends Component {
                         </p>
                     </div>
                 </div>
+                <Modal
+                    visible={modalShow}
+                    onCancel={() => {
+                        this.setState({ modalShow: false })
+                    }}
+                    onOk={() => {
+                        updatePayPassword()
+                        this.setState({modalShow: false})
+                    }}
+                    width='300px'
+                >
+                    <p>
+                        <span>支付密码：</span>
+                        <input
+                            name='payPassword'
+                            onChange={(e) => {
+                                changeData(e.target.name, e.target.value)
+                            }} /></p>
+                </Modal>
             </div>
         )
     }

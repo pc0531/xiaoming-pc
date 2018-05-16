@@ -82,7 +82,6 @@ class Friends extends Component {
                     </div>
                     <Input value={message} onChange={
                         (e) => {
-                            console.error("e.target.value:" + e.target.value)
                             changeData('message', e.target.value)
                         }
                     } />

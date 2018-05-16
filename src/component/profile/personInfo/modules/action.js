@@ -32,6 +32,7 @@ export const updatePayPassword = () => (dispatch,getState)=> {
     param.payPassword = payPassword;
     post('/user/resetPayPassword', param).then((res) => {
         if (res) {
+            message.success("设置成功!")
             dispatch(getUserInfo())
         }
     }).catch((err) => {
