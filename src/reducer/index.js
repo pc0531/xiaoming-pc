@@ -7,7 +7,7 @@ import course from '../component/course/modules/reducer'
 import order from '../component/order/modules/reducer'
 import signUp from '../component/signup/modules/reducer'
 import personInfo from '../component/profile/personInfo/modules/reducer'
-
+import classes from '../component/class/modules/reducer'
 
 export default combineReducers({
     userConfig,
@@ -16,5 +16,6 @@ export default combineReducers({
     myOrder,
     order,
     signUp,
-    personInfo
+    personInfo,
+    classes
 })

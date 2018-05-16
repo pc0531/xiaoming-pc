@@ -643,6 +643,10 @@
   margin: 20px 0 ;
 }
 
+.personInfoContent span{
+  padding-right: 20px;
+}
+
 .personInfo a{
   color: #38BCA4;
   text-decoration: none;
@@ -670,12 +674,13 @@
 
 .friends-chat-content{
   height: 300px;
+  overflow: scroll;
 }
 
 .chatModal ul{
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 0 10px;
 }
 .chatModal ul li{
   margin-bottom: 20px;
@@ -929,6 +934,7 @@ opacity: 1;
 
 .course-class-content-path > span{
   color: rgba(255, 255, 255, 0.5);
+  font-size: 20px;
 }
 
 
@@ -988,7 +994,7 @@ opacity: 1;
   display: inline-block;
 }
 
-.course-class-info-buy > button{
+.course-class-info-buy > button:first-child{
   width: 196px;
   height: 60px;
   background: #f01404;
@@ -997,6 +1003,20 @@ opacity: 1;
   line-height: 58px;
   border: 0;
   text-decoration: none;
+  padding: 0 10px;
+}
+
+.course-class-info-buy > button{
+  width: 96px;
+  height: 60px;
+  background: #2e82ff;
+  color: #fff;
+  font-size: 16px;
+  line-height: 58px;
+  border: 0;
+  text-decoration: none;
+  padding: 0 10px;
+  margin-left: 20px;
 }
 
 .course-infos-tab{

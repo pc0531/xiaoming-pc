@@ -3,7 +3,8 @@ import { bindActionCreators } from "redux"
 import { connect } from "react-redux"
 import * as actions from './modules/action'
 import { Modal, Input, Button } from 'antd'
-import {ws} from '../../../utils/ws'
+import { ws } from '../../../utils/ws'
+import moment from 'moment'
 
 const { TextArea } = Input
 
@@ -13,67 +14,56 @@ class Friends extends Component {
         chatModal: false
     }
 
-    componentDidMount(){
+    componentDidMount() {
         ws.init();
         ws.open();
     }
 
-    messageListRender(){
-        const {messageList ,userId} =  this.props;
-        if(messageList){
+    messageListRender() {
+        const { messageList, userId } = this.props;
+        if (messageList) {
             return <ul>
                 {
-                     messageList.map((ele) => {
+                    messageList.map((ele) => {
                         if (ele.sendId === userId) {
-                            return <li style={{textAlign:'right',color:'rgb(56, 188, 164)'}}>{ele.msg}</li>
+                            return <li style={{ textAlign: 'right', color: 'rgb(56, 188, 164)' }}>{ele.msg}</li>
                         }
                         else {
-                            return <li style={{textAlign:'left',color:'#606060'}}>{ele.msg}</li>
+                            return <li style={{ textAlign: 'left', color: '#606060' }}>{ele.msg}</li>
                         }
                     })
                 }
-                </ul>
-           
+            </ul>
+
         }
     }
     render() {
         let chatModal = this.state.chatModal;
-        const { messageList, userId , acceptId , message ,changeData} = this.props;
+        const { messageList, userId, acceptId, message, changeData ,messages } = this.props;
         return (
             <div className='personInfo'>
                 <div className='personInfoContent'>
-                    <h3>好友列表</h3>
-                    <p>
-                        <span>姓名：</span>
-                        <span>pengcheng</span>
-                    </p>
-                    <a onClick={() => {
-                        this.setState({ chatModal: true })
-                        if( userId === '5af0269c2592181b123f69cc'){
-                            changeData('acceptId','5adabf88f786ee126976c188')
-                        }
-                        else{
-                            changeData('acceptId','5af0269c2592181b123f69cc')
-                        }
-                    }}>
-                        聊天
-                    </a>
-                    <p>
-                        <span>姓名：</span>
-                        <span>pengcheng</span>
-                    </p>
-                    <p>
-                        <span>姓名：</span>
-                        <span>pengcheng</span>
-                    </p>
-                    <p>
-                        <span>姓名：</span>
-                        <span>pengcheng</span>
-                    </p>
-                    <p>
-                        <span>姓名：</span>
-                        <span>pengcheng</span>
-                    </p>
+                    <h3>咨询列表</h3>
+                    {
+                        messages.map((ele) => {
+                            return (
+                                <p>
+                                    <span>用户名：{ele.nickName}</span>
+                                    <span>消息：{ele.msg}</span>
+                                    <a onClick={() => {
+                                        this.setState({ chatModal: true })
+                                            changeData('acceptId', ele.sendId);
+                                            if(acceptId !== ele.sendId){
+                                                changeData('messageList', ele.messageList);
+                                            }
+                                    }}>
+                                        聊天
+                                    </a>
+                                    <span style={{float:'right'}}>{moment(ele.latesttime).format("YYYY-MM-DD HH:mm:ss")}</span>
+                                </p>
+                            )
+                        })
+                    }
                 </div>
                 <Modal
                     visible={chatModal}
@@ -85,25 +75,20 @@ class Friends extends Component {
                         }
                     }
                     footer={null}
-                    className = 'chatModal'
+                    className='chatModal'
                 >
                     <div className='friends-chat-content'>
                         {this.messageListRender()}
                     </div>
-                    {/* <TextArea rows={4} value={message} onChange = {
-                        (e)=>{
-                            console.error("e.target.value:"+e.target.value)
-                            changeData('message',e.target.value)
+                    <Input value={message} onChange={
+                        (e) => {
+                            console.error("e.target.value:" + e.target.value)
+                            changeData('message', e.target.value)
                         }
-                    }/> */}
-                    <Input value = {message} onChange={
-                        (e)=>{
-                            console.error("e.target.value:"+e.target.value)
-                            changeData('message',e.target.value)
-                        }
-                    }/>
-                    <Button onClick={()=>{
-                        ws.sendMessage()
+                    } />
+                    <Button onClick={() => {
+                       
+                        ws.sendMessage('friends')
                     }}>
 
                         发送
