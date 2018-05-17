@@ -7,7 +7,7 @@ import * as actions from './modules/action'
 import { Modal, Input, message } from 'antd'
 import { ws } from '../../utils/ws'
 import PropTypes from 'prop-types'
-import { initMenu} from '../../common/constants'
+import { initMenu } from '../../common/constants'
 
 const TabPane = Tabs.TabPane;
 
@@ -54,22 +54,22 @@ class Class extends Component {
     render() {
         let chat = this.state.chat;
         let classDetail = this.props.location.state;
-        console.error("classDetail:"+JSON.stringify(classDetail))
+        console.error("classDetail:" + JSON.stringify(classDetail))
         let goodsType0 = classDetail.goodsType.split("-")[0];
         let goodsType1 = classDetail.goodsType.split("-")[1];
         let goodsType2 = classDetail.goodsType.split("-")[2];
         let type0 = '';
         let type1 = '';
         let type2 = '';
-        initMenu.map((ele)=>{
-            if(ele.id == goodsType0){
+        initMenu.map((ele) => {
+            if (ele.id == goodsType0) {
                 type0 = ele.firsttitle;
-                ele.secondtitle.map((param)=>{
-                    if(param.id == goodsType1){
+                ele.secondtitle.map((param) => {
+                    if (param.id == goodsType1) {
                         type1 = param.title
                     }
-                    param.thirdtitle.map((e)=>{
-                        if(e.id == goodsType2 ){
+                    param.thirdtitle.map((e) => {
+                        if (e.id == goodsType2) {
                             type2 = e.title
                         }
                     })
@@ -140,8 +140,17 @@ class Class extends Component {
                                 <div className='course-info-introduct-content'>
                                     <div
                                         className='course-info-introduct-section1'
-                                        style={{ backgroundImage: `url(${classDetail.picUrl})` }}
                                     >
+                                        <div className='course-info-introduct-description'>
+                                            <p>课程详情：</p>
+                                            <p>{classDetail.goodsDescription}</p>
+                                        </div>
+                                        <div
+                                            className='course-info-introduct-description'
+                                            style={{ backgroundImage: `url(${classDetail.picUrl})` }}
+                                        >
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -176,7 +185,7 @@ class Class extends Component {
                         发送
                   </Button>
                 </Modal>
-            </div>
+            </div >
         )
     }
 }

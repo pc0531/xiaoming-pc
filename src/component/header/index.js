@@ -44,17 +44,18 @@ class Header extends Component {
                 </div>
                 <nav>
                     <div className="container">
-                        <a><img /></a>
-                        <ul>
-                            {
-                                initRows.map((params, index) => (
-                                    <li key={index}><NavLink to={params.url} activeStyle={style} >{params.title}</NavLink></li>
-                                ))
-                            }
-                        </ul>
+
+                        <Link to='/home'><span style={{ fontSize: '35px',fontFamily:'cursive',marginLeft:'50px'}}>小鸣学堂</span></Link>
+                    <ul>
+                        {
+                            initRows.map((params, index) => (
+                                <li key={index}><NavLink to={params.url} activeStyle={style} >{params.title}</NavLink></li>
+                            ))
+                        }
+                    </ul>
                     </div>
                 </nav>
-            </header>
+            </header >
         )
     }
 

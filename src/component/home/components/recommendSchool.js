@@ -21,7 +21,7 @@ export default class RecommendSchool extends Component {
                 </li>
                 <li className='recommendTeacher-bottom-left'>
                     <a>
-                        <img src='https://image.guazistatic.com/gz01171026/16/44/b76b6cb302ce377a830db817ce420cdd.png@base@tag=imgScale' />
+                        <img src='http://sjbz.fd.zol-img.com.cn/t_s1080x1920c/g5/M00/0E/08/ChMkJ1rdiOCIIql2AALe68A4IjwAAn0ugIKDtAAAt8D756.jpg' />
                     </a>
                 </li>
                 <li className='recommendTeacher-bottom-center-left'>

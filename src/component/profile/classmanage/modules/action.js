@@ -42,6 +42,19 @@ export const addClass = (formatData,cb) => dispatch =>{
     })
 }
 
+export const updateClass = (formatData,cb) => dispatch =>{
+    post('/goods/updateGoods',formatData).then((res)=>{
+        if(res){
+            message.success("修改成功!")
+            cb()
+            dispatch(getClassList())
+        }
+    }).catch((err)=>{
+        if(err){
+            message.error("系统异常！")
+        }
+    })
+}
 
 export const changeData = ( mark , data ) => dispatch =>{
     dispatch({type:`${profix}-change${mark}`,data:data})

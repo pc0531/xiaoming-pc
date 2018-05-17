@@ -101,10 +101,10 @@ class Course extends Component {
                                             <h3>{ele.goodsName}</h3>
                                             <div className='course-card-bottom'>
                                                 <div className='course-card-info'>
-                                                    <span>入门</span>
-                                                    <span>入门</span>
+                                                    <span>基础</span>
+                                                    <span>人数:{parseInt(Math.random()*100)}</span>
                                                 </div>
-                                                <p className='course-card-desc'>HTML+CSS基础教程8小时带领大家步步深入学习标签用法和意义</p>
+                                                <p className='course-card-desc'>{ele.goodsDescription}</p>
                                             </div>
                                         </div>
                                     </Link>

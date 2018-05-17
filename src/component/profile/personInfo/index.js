@@ -59,6 +59,11 @@ class PersonInfo extends Component {
                                 :
                                 <span>{userInfo.age ? userInfo.age : "未设置"}</span>}
                         </p>
+                        <p>
+                            <span>账户余额：</span>
+
+                            <span>{userInfo.totalCash ? userInfo.totalCash : "0"}元</span>
+                        </p>
                         {/* <p>
                             <span>性别：</span>
                             {update ? <input /> : <span>{userInfo.sex ? userInfo.sex : "未设置"}</span>}
@@ -110,7 +115,7 @@ class PersonInfo extends Component {
                     }}
                     onOk={() => {
                         updatePayPassword()
-                        this.setState({modalShow: false})
+                        this.setState({ modalShow: false })
                     }}
                     width='300px'
                 >
