@@ -48,8 +48,8 @@ class Friends extends Component {
                         messages.map((ele) => {
                             return (
                                 <p>
-                                    <span>用户名：{ele.nickName}</span>
-                                    <span>消息：{ele.msg}</span>
+                                    <span style={{paddingRight:'20px'}}>用户名：{ele.nickName}</span>
+                                    <span style={{paddingRight:'20px'}}>消息：{ele.msg}</span>
                                     <a onClick={() => {
                                         this.setState({ chatModal: true })
                                             changeData('acceptId', ele.sendId);
